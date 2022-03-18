@@ -1,0 +1,5 @@
+.table,.table tr td{
+    margin: 1em auto;
+    border: 1px solid grey;
+    text-align: center;
+}
