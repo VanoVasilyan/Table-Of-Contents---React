@@ -26,8 +26,8 @@ const columns = [
         title: 'Action',
         dataIndex: 'action',
         key: 'action',
-        render: (text, { action }) => {
-            return <Link to={`/accounts/${action}`}><Button type="primary">View</Button></Link>
+        render: (text, { id }) => {
+            return <Link to={`/accounts/${id}`}><Button type="primary">View</Button></Link>
         }
     }
 ];

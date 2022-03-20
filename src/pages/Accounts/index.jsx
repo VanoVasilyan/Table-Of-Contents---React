@@ -6,7 +6,6 @@ import './Accounts.css'
 
 const Accounts = () => {
     const { data } = useGlobalContext();
-
     return <Table pagination={false} bordered={true} columns={columns} dataSource={data} />
 }
 
