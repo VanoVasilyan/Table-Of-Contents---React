@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-
-
 const AppContext = React.createContext('')
 
 const AppProvider = ({ children }) => {
     const url = 'http://localhost:3001';
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     const getUserById = (id) => {
         const currentPerson = data.find(item => item.id === Number(id))
@@ -16,17 +14,17 @@ const AppProvider = ({ children }) => {
     const getData = async () => {
         try {
             const response = await fetch(`${url}/accounts`);
-            const data = await response.json()
+            const data = await response.json();
             setData(data);
-            setLoading(false)
+            setLoading(false);
         } catch (err) {
             console.error(err)
         }
     }
 
     useEffect(() => {
-        getData()
-    })
+        getData();
+    });
 
     return <AppContext.Provider value={{
         data,
