@@ -1,11 +1,11 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { useGlobalContext } from "../../context";
 import { Table, Button } from 'antd';
 import columns from "../Accounts/columns";
 import 'antd/dist/antd.min.css'
 
 const PersonPage = () => {
-    const { getUserById } = useGlobalContext();
+    const { getUserById, loading } = useGlobalContext();
     const navigate = useNavigate()
     const { id } = useParams();
     const currentPerson = getUserById(id)
@@ -20,7 +20,11 @@ const PersonPage = () => {
         )
     }
 
-    return true
+    if (!loading) {
+        return <Navigate to={"/accounts"} />
+    }
+
+    return <></>
 }
 
 export default PersonPage
